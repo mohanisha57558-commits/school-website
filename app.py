@@ -5,6 +5,7 @@ app = Flask(__name__)
 app.secret_key = "secret123"
 
 UPLOAD_FOLDER = "uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # 🔥 create folder if missing
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 ADMIN_USERNAME = "admin"
@@ -29,8 +30,10 @@ def admin():
 
     if request.method == "POST":
         file = request.files["file"]
-        if file:
-            file.save(os.path.join(app.config["UPLOAD_FOLDER"], "timetable.pdf"))
+
+        if file and file.filename != "":
+            filepath = os.path.join(app.config["UPLOAD_FOLDER"], "timetable")
+            file.save(filepath)
 
     return render_template("admin.html")
 
