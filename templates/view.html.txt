@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Timetable</title>
+<style>
+body {font-family: Arial; background:#f0f2f5; text-align:center; padding-top:50px;}
+.box {background:white; margin:auto; padding:20px; width:90%; max-width:350px;}
+a.button {display:block; padding:12px; margin:10px 0; background:#007bff; color:white; text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>School Timetable</h2>
+<a class="button" href="/uploads/timetable.pdf" target="_blank">View Timetable</a>
+<a class="button" href="/login">Admin Login</a>
+</div>
+</body>
+</html>

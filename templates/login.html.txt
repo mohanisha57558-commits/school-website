@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login</title>
+<style>
+body {font-family: Arial; background:#f0f2f5; text-align:center; padding-top:50px;}
+.box {background:white; margin:auto; padding:20px; width:90%; max-width:350px;}
+input, button {width:100%; padding:12px; margin:10px 0;}
+button {background:#007bff; color:white; border:none;}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Admin Login</h2>
+<form method="post">
+<input type="text" name="username" placeholder="Username">
+<input type="password" name="password" placeholder="Password">
+<button type="submit">Login</button>
+</form>
+</div>
+</body>
+</html>

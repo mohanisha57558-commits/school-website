@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Timetable</title>
+<style>
+body {font-family: Arial; background:#f0f2f5; text-align:center; padding-top:50px;}
+.box {background:white; margin:auto; padding:20px; width:90%; max-width:350px;}
+input, button {width:100%; padding:12px; margin:10px 0;}
+button {background:green; color:white; border:none;}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Upload Timetable</h2>
+<form method="post" enctype="multipart/form-data">
+<input type="file" name="file">
+<button type="submit">Upload</button>
+</form>
+<a href="/logout">Logout</a>
+</div>
+</body>
+</html>
