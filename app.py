@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.secret_key = "secret123"
 
 UPLOAD_FOLDER = "uploads"
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # 🔥 create folder if missing
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 ADMIN_USERNAME = "admin"
@@ -32,14 +32,27 @@ def admin():
         file = request.files["file"]
 
         if file and file.filename != "":
-            filepath = os.path.join(app.config["UPLOAD_FOLDER"], "timetable")
+            ext = os.path.splitext(file.filename)[1]
+            filename = "timetable" + ext
+            filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             file.save(filepath)
 
     return render_template("admin.html")
 
+@app.route("/preview")
+def preview():
+    files = os.listdir(app.config["UPLOAD_FOLDER"])
+    if files:
+        return redirect(url_for("uploaded_file", filename=files[0]))
+    return "No timetable uploaded yet."
+
 @app.route("/uploads/<filename>")
 def uploaded_file(filename):
-    return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
+    return send_from_directory(
+        app.config["UPLOAD_FOLDER"],
+        filename,
+        as_attachment=False
+    )
 
 @app.route("/logout")
 def logout():
